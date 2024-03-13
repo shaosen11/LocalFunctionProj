@@ -1,7 +1,15 @@
 name: Deploy DotNet project to Azure Function App
 
+# Using workload identity federation to authenticate to Azure
+permissions:
+  id-token: write
+  contents: read
+
 on:
-  [push]
+  push:
+    branches:
+    - main
+  workflow_dispatch:
 
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
